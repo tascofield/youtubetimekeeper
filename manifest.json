@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Youtube Timekeeper",
-  "version": "0.1",
+  "version": "0.2",
 
   "description": "Constantly updates a youtube tab's URL to include the current time of the video",
 

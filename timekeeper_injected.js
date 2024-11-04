@@ -17,7 +17,12 @@ function sendToContentScript(data) {
 function setTimeUpdater() {
 	const video = window.document.querySelector("video")
 	if (video != null) {
-		video.ontimeupdate = () => sendToContentScript({currentTime: getCurrentTime()})
+    let prevUpdate = video.ontimeupdate
+    if (!prevUpdate) prevUpdate = ()=>{}
+		video.ontimeupdate = () => {
+      sendToContentScript({currentTime: getCurrentTime()})
+      prevUpdate()
+    }
 	}
 }
 
